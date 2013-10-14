@@ -5,9 +5,9 @@ class Phrase
   end
 
   def word_count
-    counts = {}
+    counts = Hash.new(0)
     get_list_of_words.each do |w|
-      counts[w] = counts[w].nil? ? 1 : counts[w] + 1
+      counts[w] += 1
     end
     counts
   end

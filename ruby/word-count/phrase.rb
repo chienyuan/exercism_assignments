@@ -6,10 +6,10 @@ class Phrase
 
   def word_count
     counts = Hash.new(0)
-    get_list_of_words.each do |w|
-      counts[w] += 1
+    get_list_of_words.each_with_object(counts) do | a, h |
+      h[a] += 1 
     end
-    counts
+      
   end
  
   private

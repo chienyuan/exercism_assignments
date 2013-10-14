@@ -1,5 +1,3 @@
-
-
 class Phrase
 
   def initialize(phrase)
@@ -7,18 +5,17 @@ class Phrase
   end
 
   def word_count
-    out = {}
-    p = @phrase.downcase.gsub(/[^a-z0-9,\s]/,'')
-    p.split(/[\s|,]/).each do |w|
-      if not w.empty?
-        if out[w].nil?
-          out[w] = 1
-        else
-          out[w] = out[w] + 1
-        end
-      end
+    counts = {}
+    get_list_of_words.each do |w|
+      counts[w] = counts[w].nil? ? 1 : counts[w] + 1
     end
-    out
+    counts
+  end
+ 
+  private
+  
+  def get_list_of_words
+    @phrase.downcase.scan(/\w+/)
   end
 
 end

@@ -6,15 +6,14 @@ class Phrase
 
   def word_count
     counts = Hash.new(0)
-    get_list_of_words.each_with_object(counts) do | a, h |
-      h[a] += 1 
+    words.each_with_object(counts) do | word, counts |
+      counts[word] += 1 
     end
-      
   end
  
   private
   
-  def get_list_of_words
+  def words
     @phrase.downcase.scan(/\w+/)
   end
 

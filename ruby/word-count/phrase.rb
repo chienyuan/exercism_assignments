@@ -5,9 +5,10 @@ class Phrase
   end
 
   def word_count
-    counts = Hash.new(0)
-    words.each_with_object(counts) do | word, counts |
+    # using inject building the counts hash
+    words.inject(Hash.new(0)) do | counts, word |
       counts[word] += 1 
+      counts
     end
   end
  

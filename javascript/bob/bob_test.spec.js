@@ -38,14 +38,29 @@ describe("Bob", function() {
     expect(result).toEqual('Woah, chill out!');
   });
 
-  it("shouting numbers", function() {
-    var result = bob.hey('1,2,3');
+  it("only numbers", function() {
+    var result = bob.hey('1, 2, 3');
     expect(result).toEqual('Whatever.');
+  });
+
+  it("question with only numbers", function() {
+    var result = bob.hey('4?');
+    expect(result).toEqual('Sure.');
   });
 
   it("shouting with special characters", function() {
     var result = bob.hey('ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!');
     expect(result).toEqual('Woah, chill out!');
+  });
+
+  it("shouting with umlauts", function() {
+    var result = bob.hey("\xdcML\xc4\xdcTS!");
+    expect(result).toEqual('Woah, chill out!');
+  });
+
+  it("calmly speaking about umlauts", function() {
+    var result = bob.hey("\xdcML\xe4\xdcTS!");
+    expect(result).toEqual('Whatever.');
   });
 
   it("shouting with no exclamation mark", function () {

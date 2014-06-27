@@ -8,7 +8,9 @@ class Robot
   end
 
   def reset
-    @name = (0..1).map { (65 + rand(26)).chr}.join + rand(1000).to_s.rjust(3,'0')
+    begin
+      @name = (0..1).map { (65 + rand(26)).chr}.join + rand(1000).to_s.rjust(3,'0')
+    end while  @@used[@name]
     @@used[@name] = true
   end
 

@@ -13,10 +13,15 @@ defmodule NucleotideCount do
   1
   """
   @spec count([char], char) :: non_neg_integer
-  def count(strand, nucleotide) do
+  def count([], _nucleotide), do: 0 
 
+  def count([h|t], nucleotide) when h == nucleotide do
+    count(t,nucleotide) + 1 
   end
 
+  def count([_h|t], nucleotide) do
+    count(t,nucleotide) 
+  end
 
   @doc """
   Returns a summary of counts by nucleotide.
@@ -28,6 +33,6 @@ defmodule NucleotideCount do
   """
   @spec histogram([char]) :: map
   def histogram(strand) do
-
+    @nucleotides |> Map.new(&({&1,count(strand,&1)}))
   end
 end

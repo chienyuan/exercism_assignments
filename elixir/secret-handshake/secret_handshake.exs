@@ -13,8 +13,24 @@ defmodule SecretHandshake do
 
   10000 = Reverse the order of the operations in the secret handshake
   """
+  use Bitwise
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
-  end
-end
+    
+    m = %{0b1=>"wink",0b10=>"double blink",0b100=>"close your eyes",0b1000=>"jump"}
 
+    [0b1,0b10,0b100,0b1000,0b10000]
+    |> Enum.reduce( [], fn (x,acc) ->
+       if( (code &&& x )> 0 ) do
+         if( x == 0b10000) do
+            Enum.reverse(acc)
+         else
+            acc ++ [m[x]]
+         end
+       else
+        acc
+       end
+     end )
+  end
+
+end

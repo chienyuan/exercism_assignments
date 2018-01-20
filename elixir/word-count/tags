@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Words	word_count.exs	/^defmodule Words do$/;"	m
+WordsTest	word_count_test.exs	/^defmodule WordsTest do$/;"	m
+_count	word_count.exs	/^  defp _count([]) , do: %{}$/;"	f
+_count	word_count.exs	/^  defp _count([h|t]) do$/;"	f
+count	word_count.exs	/^  def count(sentence) do$/;"	f
+count multiple occurrences	word_count_test.exs	/^  test "count multiple occurrences" do$/;"	t
+count one of each	word_count_test.exs	/^  test "count one of each" do$/;"	t
+count one word	word_count_test.exs	/^  test "count one word" do$/;"	t
+hyphens	word_count_test.exs	/^  test "hyphens" do$/;"	t
+ignore punctuation	word_count_test.exs	/^  test "ignore punctuation" do$/;"	t
+ignore underscores	word_count_test.exs	/^  test "ignore underscores" do$/;"	t
+include numbers	word_count_test.exs	/^  test "include numbers" do$/;"	t
+normalize case	word_count_test.exs	/^  test "normalize case" do$/;"	t

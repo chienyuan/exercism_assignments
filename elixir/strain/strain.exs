@@ -7,6 +7,20 @@ defmodule Strain do
   """
   @spec keep(list :: list(any), fun :: ((any) -> boolean)) :: list(any)
   def keep(list, fun) do
+    _keep(list,fun,[])
+  end
+
+  defp _keep(list,_fun,a) when length(list) == 0 do
+    a
+  end
+
+  defp _keep([h|t],fun,a) do
+    a = if( apply(fun,[h]) ) do
+        a ++ [h]
+      else
+        a
+    end
+    _keep(t,fun,a)
   end
 
   @doc """
@@ -17,5 +31,19 @@ defmodule Strain do
   """
   @spec discard(list :: list(any), fun :: ((any) -> boolean)) :: list(any)
   def discard(list, fun) do
+    _discard(list,fun,[])
+  end
+
+  defp _discard(list,_fun,a) when length(list) == 0 do
+    a
+  end
+
+  defp _discard([h|t],fun,a) do
+    a = if( not apply(fun,[h])) do
+       a ++ [h]
+     else
+       a
+    end
+    _discard(t,fun,a)
   end
 end
